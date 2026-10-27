@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Himanshu — Intro</title>
+  <style>
+    :root {
+      --background: #c5c6c9;
+      --text: #080a1c;
+      --accent: #080a1c;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: var(--text);
+      background-color: #c5c6c9;
+      background-image: url("./minimalist-landscape-wallpaper.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(100% - 48px, 1050px);
+      position: relative;
+      padding: clamp(22px, 4vw, 44px);
+      border-radius: 18px;
+      background: rgba(232, 229, 220, .78);
+      border: 1px solid rgba(8, 10, 28, .12);
+      box-shadow: 0 18px 60px rgba(8, 10, 28, .12);
+      backdrop-filter: blur(7px);
+      animation: fade-in .9s ease-out both;
+    }
+
+    h1 {
+      margin: 0 0 28px;
+      max-width: 1000px;
+      font-size: clamp(3.2rem, 9vw, 7.6rem);
+      font-weight: 800;
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+
+    h1 span { display: block; }
+
+    .role-line {
+      min-height: 1.5em;
+      color: var(--accent);
+      font-size: clamp(1.35rem, 3.7vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -.035em;
+      display: flex;
+      align-items: center;
+    }
+
+    .typed {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 0;
+      border-right: 3px solid var(--accent);
+      padding-right: 5px;
+      animation:
+        typing 3.2s steps(28, end) infinite,
+        blink .75s step-end infinite;
+    }
+
+    /* Each role gets its own typing cycle */
+    .typed::before {
+      content: "Computer Science Student";
+      animation: roles 16s steps(1, end) infinite;
+    }
+
+    @keyframes roles {
+      0%, 24.99% { content: "Computer Science Student"; }
+      25%, 49.99% { content: "Full Stack Developer"; }
+      50%, 74.99% { content: "UI/UX Enthusiast"; }
+      75%, 100% { content: "Problem Solver"; }
+    }
+
+    @keyframes typing {
+      0% { max-width: 0; }
+      20%, 70% { max-width: 28ch; }
+      90%, 100% { max-width: 0; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .social-links a {
+      position: relative;
+      display: inline-block;
+      padding: 3px 0 6px;
+      color: #080a1c;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .01em;
+    }
+
+    .social-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .25s ease;
+    }
+
+    .social-links a:hover::after,
+    .social-links a:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .social-links a:focus-visible {
+      outline: 2px solid #080a1c;
+      outline-offset: 5px;
+    }
+
+    @media (max-width: 480px) {
+      main { width: min(100% - 24px, 1050px); }
+      .social-links { gap: 18px; margin-top: 25px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .typed { max-width: 28ch; }
+      .typed::before { content: "Full Stack Developer"; }
+    }
+  </style>
+</head>
+<body>
+  <main aria-label="Introduction">
+    <h1>
+      <span>Hello, I am</span>
+      <span>Himanshu.</span>
+    </h1>
+    <div class="role-line">
+      <span class="typed" aria-label="Computer Science Student, Full Stack Developer, UI/UX Enthusiast, Problem Solver"></span>
+    </div>
+
+    <nav class="social-links" aria-label="Social profiles">
+      <a href="https://www.instagram.com/ftt.himanshuu/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://github.com/ftthimanshuu" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/himanshulokhande26" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </nav>
+  </main>
+</body>
+</html>
